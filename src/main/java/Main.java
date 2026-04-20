@@ -1,24 +1,28 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String inputTerm;
-        String inputDef;
-
         HashMap<String, String> flashcards = new HashMap<String, String>();
 
-        System.out.println("Please enter the first term.");
-        inputTerm = scanner.nextLine();
+        while(true) {
+            System.out.println("Please enter term");
+            String inputTerm = scanner.nextLine();
 
-        System.out.println("Please enter the first definition.");
-        inputDef = scanner.nextLine();
+            System.out.println("Please enter the definition for " + inputTerm);
+            String inputDef = scanner.nextLine();
 
-        flashcards.put(inputTerm, inputDef);
+            flashcards.put(inputTerm, inputDef);
+
+            System.out.println("Would you like to enter another flashcard?\nEnter 'y' to continue, or 'n' to quit");
+            String cont = scanner.nextLine();
+
+            if(cont.equals("n")) {
+                break;
+            }
+        }
 
         System.out.println(flashcards);
-
     }
 }
