@@ -36,6 +36,30 @@ public class Main {
                 System.out.println("Term not found.");
             }
         }
+        
+    System.out.println("Would you like to start quiz mode? (y/n)");
+    String quizChoice = scanner.nextLine();
+
+    if (quizChoice.equals("y")) {
+
+    int score = 0;
+
+    for (String term : flashcards.keySet()) {
+        System.out.println("What is the definition of: " + term + "?");
+        String answer = scanner.nextLine();
+
+        if (answer.equalsIgnoreCase(flashcards.get(term))) {
+            System.out.println("Correct!");
+            score++;
+        } else {
+            System.out.println("Incorrect!");
+            System.out.println("Correct answer: " + flashcards.get(term));
+        }
+    }
+
+    System.out.println("Quiz finished!");
+    System.out.println("Your score: " + score + " / " + flashcards.size());
+}
 
         System.out.println(flashcards);
     }
